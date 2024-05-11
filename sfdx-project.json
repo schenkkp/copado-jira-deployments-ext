@@ -23,6 +23,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "60.0",
   "packageAliases": {
-    "Copado Jira Cloud Deployments Automation": "0Ho4w000000PAv7CAG"
+    "Copado Jira Cloud Deployments Automation": "0Ho4w000000PAv7CAG",
+    "Copado Jira Cloud Deployments Automation@0.1.0-1-main": "04t4w000000XeGAAA0"
   }
 }
