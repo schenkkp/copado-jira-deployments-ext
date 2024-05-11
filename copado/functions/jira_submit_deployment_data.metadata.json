@@ -1,0 +1,44 @@
+{
+  "name": "Jira Submit Deployment Data",
+  "apiname": "jira_submit_deployment_data",
+  "apexclass": null,
+  "callback": null,
+  "flowhandler": null,
+  "imagename": "vpszr8i9hax7xyojo5glc38nvtpugy-accenture-sfdc:v1.0",
+  "type": "Custom",
+  "timeout": 60,
+  "size": "S",
+  "version": "1",
+  "parameters": [
+    {
+      "required": true,
+      "name": "JIRA_CLOUD_ID",
+      "defaultValue": "{$Pipeline.Property.JIRA_CLOUD_ID}"
+    },
+    {
+      "required": true,
+      "name": "JIRA_CLIENT_ID",
+      "defaultValue": "{$Pipeline.Property.JIRA_CLIENT_ID}"
+    },
+    {
+      "required": true,
+      "name": "JIRA_CLIENT_SECRET",
+      "defaultValue": "{$Pipeline.Property.JIRA_CLIENT_SECRET}"
+    },
+    {
+      "required": true,
+      "name": "PROMOTION_ID",
+      "defaultValue": "{$Job.ExecutionParent.Id}"
+    },
+    {
+      "required": false,
+      "name": "DEST_ENV_TYPE",
+      "defaultValue": "{$Destination.Property.JIRA_ENVIRONMENT_TYPE}"
+    },
+    {
+      "required": false,
+      "name": "DEBUG_MODE",
+      "defaultValue": ""
+    }
+  ]
+}
