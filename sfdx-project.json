@@ -2,11 +2,18 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": true,
+      "package": "Copado Jira Cloud Deployments Automation Extension",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "versionDescription": ""
     }
   ],
   "name": "Copado Jira Cloud Deployments Automation",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "60.0"
+  "sourceApiVersion": "60.0",
+  "packageAliases": {
+    "Copado Jira Cloud Deployments Automation Extension": "0Ho4w000000PAv2CAG"
+  }
 }
