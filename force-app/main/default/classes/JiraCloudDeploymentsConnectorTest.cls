@@ -26,7 +26,22 @@ private class JiraCloudDeploymentsConnectorTest {
         copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipeline.Id);  
         insert project;
 
-        copado__Promotion__c promotion = new copado__Promotion__c(copado__Project__c = project.Id);
+        copado__Environment__c s_env = new copado__Environment__c(Name='Source');
+        insert s_env;
+
+        copado__Org__c s_org = new copado__Org__c(Name='Source', copado__Environment__c = s_env.id);
+        insert s_org;
+        
+        copado__Environment__c d_env = new copado__Environment__c(Name='Dest');
+        insert d_env;
+
+        copado__Org__c d_org = new copado__Org__c(Name='Dest', copado__Environment__c = d_env.id);
+        insert d_org;
+
+        copado__Deployment_Flow_Step__c pc = new copado__Deployment_Flow_Step__c(copado__Deployment_Flow__c = pipeline.Id, copado__Source_Environment__c = s_env.id, copado__Destination_Environment__c = d_env.id);
+        insert pc;
+
+        copado__Promotion__c promotion = new copado__Promotion__c(copado__Project__c = project.Id, copado__Source_Environment__c = s_env.id, copado__Destination_Environment__c = d_env.id);
         insert promotion;
 
         promotion = [SELECT Id,Name,copado__Project__c,copado__Destination_Environment__c FROM copado__Promotion__c WHERE Id = :promotion.Id];
