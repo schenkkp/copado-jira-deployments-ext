@@ -23,6 +23,7 @@ The **Copado Jira Cloud Deployments Automation** extension is designed to automa
 Please work with your Jira admin to enable the following settings.
 
 #### Create OAuth Credentials within Jira Admin Console ([more info](https://support.atlassian.com/jira-cloud-administration/docs/integrate-with-self-hosted-tools-using-oauth/))
+*You must be a Jira org admin to set up OAuth Credentials.*
 
 1. Login to your Jira Cloud instance and select Settings (gear icon)  > Apps.
 2. From the sidebar, select **OAuth credentials**.
@@ -32,6 +33,7 @@ Please work with your Jira admin to enable the following settings.
     - Server base URL: `<your Copado org URL e.g. https://copado.my.salesforce.com/>`
     - Logo URL: `https://assets-global.website-files.com/62d8507d84c54d359ad063bc/62f562c6eb37c731230c6837_favicon.png` (Copado favicon)
     - Permissions: `Deployments`
+5. Store the created **Client Id** and **Client Secret** values in a secure place as they will be re-used later in this setup.
 
 #### Enable Deployments within Jira Project(s) ([more info](https://support.atlassian.com/jira-software-cloud/docs/enable-deployments/))
 *You must be a project admin to enable and disable features on a project. You must also have the permission View Development Tools to enable the Deployments feature.*
@@ -59,7 +61,14 @@ A new menu item, **Deployments**, will be added to the project menu.
 4. Click **Generate Extension Records** button to generate the necessary Job Template and Function records.
 
 #### Create Pipeline System Properties
-
+For each Pipeline you would like to enable with the automation:
+1. Navigate to the Pipeline record.
+2. From the **Settings** tab, create the following **New** System Properties:
+    | Property Name | API Name | Value | Hide Value? | Is Public? |
+    | ------------- | -------- | ----- | ----------- | ---------- |
+    | JIRA_CLOUD_ID | JIRA_CLOUD_ID | (Obtain the `cloudId` value by navigating to `https://<your-jira-instance>.atlassian.net/_edge/tenant_info`) | False | True |
+    | JIRA_CLIENT_ID | JIRA_CLIENT_ID | (**Client ID** as provided in the Create OAuth Credentials step above.) | True | True |
+    | JIRA_CLIENT_SECRET | JIRA_CLIENT_SECRET | (**Client Secret** as provided in the Create OAuth Credentials step above.) | True | True |
 
 #### Create Environment System Properties
 
