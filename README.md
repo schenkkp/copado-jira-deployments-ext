@@ -2,7 +2,7 @@
 
 ## About the Extension
 
-The **Copado Jira Cloud Deployments Automation** extension is designed to automate the process of notifying Jira Cloud with deployment information post-promotion using the [Jira Cloud Deployments API](https://developer.atlassian.com/cloud/jira/software/rest/api-group-deployments/). This extension enhances the integration between Copado and Jira Cloud by automatically updating Jira with the latest deployment status and details immediately after a promotion deployment is executed. This ensures that the project management and tracking systems are seamlessly synchronized with the actual deployment activities, improving visibility and traceability across development and operations teams. More details about the Jira Cloud deployments feature can be found [here](https://support.atlassian.com/jira-cloud-administration/docs/what-is-the-deployments-feature/).
+The **Copado Jira Cloud Deployments Automation** extension automates the process of notifying Jira Cloud with deployment information post-promotion using the [Jira Cloud Deployments API](https://developer.atlassian.com/cloud/jira/software/rest/api-group-deployments/). This extension enhances the integration between Copado and Jira Cloud by automatically updating Jira with the latest deployment status and details immediately after a promotion deployment is executed. This ensures that the project management and tracking systems are seamlessly synchronized with the actual deployment activities, improving visibility and traceability across development and operations teams. More details about the Jira Cloud deployments feature can be found [here](https://support.atlassian.com/jira-cloud-administration/docs/what-is-the-deployments-feature/).
 
 ## Prerequisities
 
@@ -134,3 +134,6 @@ In order to run the automation after each Promotion Deployment, you will need to
 
 
 <kbd><img src="docs/images/copado-automation-rule.jpg" /></kbd>
+
+#### Fine Print
+This extension is independently developed and is not affiliated with, endorsed, or supported by Atlassian Corporation Plc. Atlassian, Jira, and all related logos are trademarks of Atlassian Corporation Plc or its affiliates.
