@@ -13,11 +13,11 @@ The **Copado Jira Cloud Deployments Automation** extension is designed to automa
 ## Considerations & Limitations
 
 - Supported only for Salesforce Source Format Pipelines
-- Supported only for **Immediate** exeuction time of Automations.  **Scheduled** execution is not yet supported.
+- Supported only for **Immediate** exeuction time of Automations.  **Scheduled** execution is not supported.
 - Works with Jira issues associated within User Story Bundles included in Promotion Deployment
 - Validation (or "dry run") deployments will not trigger Jira Deployment Status Automation
 - Limit of 5,000 Jira issues per Promotion Deployment
-- Rollback promotion deployments not supported
+- Rollback promotion deployments are not supported
 
 ## Setup
 
@@ -31,12 +31,16 @@ Please work with your Jira admin to enable the following settings.
 
 1. Login to your Jira Cloud instance and select Settings (gear icon)  > Apps.
 2. From the sidebar, select **OAuth credentials**.
-3. Select **Create credentials**.
+3. Select **Create credentials**. 
+  
+    ![Jira Create Credentials](docs\images\jira-create-creds1.jpg)
 4. Enter the following details and click **Create**:
     - App name: `Copado`
     - Server base URL: `<your Copado org URL e.g. https://copado.my.salesforce.com/>`
     - Logo URL: `https://assets-global.website-files.com/62d8507d84c54d359ad063bc/62f562c6eb37c731230c6837_favicon.png` (Copado favicon)
-    - Permissions: `Deployments`
+    - Permissions: `Deployments` 
+  
+    ![Jira Create Credentials 2](docs\images\jira-create-creds2.jpg)
 5. Store the created **Client Id** and **Client Secret** values in a secure place as they will be re-used later in this setup.
 
 #### Enable Deployments within Jira Project(s) ([more info](https://support.atlassian.com/jira-software-cloud/docs/enable-deployments/))
@@ -48,6 +52,8 @@ Please work with your Jira admin to enable the following settings.
 3. Enable the **Deployments** feature.
 
 A new menu item, **Deployments**, will be added to the project menu.
+
+![Jira Enable Deployments](docs\images\jira-enable-deployments.jpg)
 
 ### Copado Setup
 
@@ -68,6 +74,9 @@ A new menu item, **Deployments**, will be added to the project menu.
 3. Copado will display a list of all the records included in the package. A check will be displayed next to the record name if the records have not changed. On the contrary, if the record has been updated in the new version or if you have customized it, a cross will appear.  If needed, you can click **View Differences** on the drop-down menu to review the changes.
 4. Click **Generate Extension Records** button to generate the necessary Job Template and Function records.
 
+
+![Create Extension Records in Copado](docs\images\copado-create-ext.jpg)
+
 #### Create Pipeline System Properties ([more info](https://docs.copado.com/articles/#!copado-ci-cd-publication/how-to-create-a-system-property))
 
 For each Pipeline you would like to enable with the automation:
@@ -79,6 +88,9 @@ For each Pipeline you would like to enable with the automation:
     | JIRA_CLOUD_ID | JIRA_CLOUD_ID | (Obtain the `cloudId` value by navigating to `https://<your-jira-instance>.atlassian.net/_edge/tenant_info`) | False | True |
     | JIRA_CLIENT_ID | JIRA_CLIENT_ID | (**Client ID** as provided in the Create OAuth Credentials step above.) | True | True |
     | JIRA_CLIENT_SECRET | JIRA_CLIENT_SECRET | (**Client Secret** as provided in the Create OAuth Credentials step above.) | True | True |
+
+
+![Create Pipeline System Properties in Copado](docs\images\copado-pipeline-props.jpg)
 
 #### Create Environment System Properties ([more info](https://docs.copado.com/articles/#!copado-ci-cd-publication/how-to-create-a-system-property))
 
@@ -99,6 +111,8 @@ For each **Environment** you would like to enable with the automation:
     | ------------- | -------- | ----- | ----------- | ---------- |
     | JIRA_ENVIRONMENT_TYPE | JIRA_ENVIRONMENT_TYPE | Valid values: `unmapped`, `development`, `testing`, `staging`, `production` | False | True |
 
+![Create Environment System Properties in Copado](docs\images\copado-env-props.jpg)
+
 #### Configure Automation ([more info](https://docs.copado.com/articles/#!copado-ci-cd-publication/configure-an-automation))
 
 In order to run the automation after each Promotion Deployment, you will need to configure two Automation records: one upon successful promotion deployment and one upon error.
@@ -117,3 +131,6 @@ In order to run the automation after each Promotion Deployment, you will need to
 6. Optionally, you can configure the **Trigger Scope** or **Advanced Criteria** when you'd like to notify Jira.
 7. When ready, you can activate the **Automation Rule** by clicking on the **Activate** button.
 8. Repeat steps 1-7 to create a separate **Automation Rule** for `Error` action status.
+
+
+![Create Automation Rules in Copado](docs\images\copado-automation-rule.jpg)
