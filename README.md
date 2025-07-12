@@ -6,8 +6,8 @@ The **Copado Jira Cloud Deployments Automation** extension automates the process
 
 ## Prerequisities
 
-- Install Copado v22.22 or higher
-- Install Copado Connect v4.35 or higher
+- Install Copado v24.34 or higher
+- Install Copado Connect v3.4 or higher
 - Install Copado Jira Cloud Deployments Automation Extension
 
 ## Considerations & Limitations
