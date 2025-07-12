@@ -3,17 +3,17 @@
     {
       "path": "force-app",
       "package": "Copado Jira Cloud Deployments Automation",
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
+      "versionName": "ver 1.0",
+      "versionNumber": "1.0.0",
       "default": true,
       "dependencies": [
         {
-          "package": "copado@22.22.0.1",
-          "subscriberPackageVersionId": "04t5p000001E9I4AAK"
+          "package": "copado@24.34.0.1",
+          "subscriberPackageVersionId": "04tKA000000Tn8IYAS"
         },
         {
-          "package": "copadoconnect@1.32.0.1",
-          "subscriberPackageVersionId": "04tP70000005eMbIAI"
+          "package": "copadoconnect@3.4.0.1",
+          "subscriberPackageVersionId": "04tP7000001UOfRIAW"
         }
       ]
     }

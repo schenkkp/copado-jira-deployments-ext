@@ -13,17 +13,17 @@
     {
       "required": true,
       "name": "JIRA_CLOUD_ID",
-      "defaultValue": "{$Pipeline.Property.JIRA_CLOUD_ID}"
+      "defaultValue": "{$Property.JIRA_CLOUD_ID}"
     },
     {
       "required": true,
       "name": "JIRA_CLIENT_ID",
-      "defaultValue": "{$Pipeline.Property.JIRA_CLIENT_ID}"
+      "defaultValue": "{$Property.JIRA_CLIENT_ID}"
     },
     {
       "required": true,
       "name": "JIRA_CLIENT_SECRET",
-      "defaultValue": "{$Pipeline.Property.JIRA_CLIENT_SECRET}"
+      "defaultValue": "{$Property.JIRA_CLIENT_SECRET}"
     },
     {
       "required": true,
@@ -33,7 +33,7 @@
     {
       "required": false,
       "name": "DEST_ENV_TYPE",
-      "defaultValue": "{$Destination.Property.JIRA_ENVIRONMENT_TYPE}"
+      "defaultValue": "{$Property.JIRA_ENVIRONMENT_TYPE}"
     },
     {
       "required": false,

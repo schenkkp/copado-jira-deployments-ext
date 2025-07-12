@@ -1,0 +1,51 @@
+{
+  "name": "Jira Deployment Notification",
+  "apiname": "Jira_Deployment_Notification_1",
+  "type": "Custom",
+  "description": null,
+  "version": 1,
+  "volumeoptions": null,
+  "steps": [
+    {
+      "name": "Notify Jira of Deployment Status",
+      "apiname": "Jira_Deployments_1_Submit_Deployment_to_Jira_1",
+      "type": "Function",
+      "customtype": "Function",
+      "config": {
+        "functionName": "jira_submit_deployment_data",
+        "parameters": [
+          {
+            "name": "JIRA_CLOUD_ID",
+            "value": "{$Property.JIRA_CLOUD_ID}",
+            "required": true
+          },
+          {
+            "name": "JIRA_CLIENT_ID",
+            "value": "{$Property.JIRA_CLIENT_ID}",
+            "required": true
+          },
+          {
+            "name": "JIRA_CLIENT_SECRET",
+            "value": "{$Property.JIRA_CLIENT_SECRET}",
+            "required": true
+          },
+          {
+            "name": "PROMOTION_ID",
+            "value": "{$Job.ExecutionParent.Id}",
+            "required": true
+          },
+          {
+            "required": false,
+            "name": "DEST_ENV_TYPE",
+            "defaultValue": "{$Property.JIRA_ENVIRONMENT_TYPE}"
+          },
+          {
+            "name": "DEBUG_MODE",
+            "value": "",
+            "required": false
+          }
+        ]
+      }
+    }
+  ]
+}

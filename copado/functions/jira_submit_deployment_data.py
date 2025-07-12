@@ -207,15 +207,30 @@ def main():
     # build soql query
     query = ('Select Id, Name, copado__Source_Environment__r.Name, copado__Destination_Environment__c, copado__Destination_Environment__r.Name, '
             'copado__Back_Promotion__c, copado__Project__r.copado__Deployment_Flow__c, '
-            'copado__Project__r.copado__Deployment_Flow__r.Name, copado__Status__c, LastModifiedDate FROM copado__Promotion__c '
+            'copado__Project__r.copado__Deployment_Flow__r.Name, copado__Pipeline__c, copado__Pipeline__r.Name, '
+            'copado__Status__c, LastModifiedDate FROM copado__Promotion__c '
             'WHERE Id = {promotion_id}')
     promo_df = sf_api_query(copa_sf.query_all(format_soql(query, promotion_id=PROMOTION_ID))).to_dict('records')[0]
+
+    pipeline_id   = (
+        promo_df.get('copado__Pipeline__c')
+        or promo_df.get('copado__Project__r.copado__Deployment_Flow__c')
+    )
+    pipeline_name = (
+        promo_df.get('copado__Pipeline__r.Name')
+        or promo_df.get('copado__Project__r.copado__Deployment_Flow__r.Name')
+    )
 
     promotion_no = get_promo_no(promo_df['Name'])
     promoted_stories_lst = get_promoted_stories(PROMOTION_ID, copa_sf)
 
     if len(promoted_stories_lst) == 0:
         log('No Stories in Promotion have Jira Keys')
+        return
+    
+    # bail out if absolutely nothing was found
+    if not pipeline_id:
+        log(f"No pipeline or deployment-flow on Promotion {PROMOTION_ID}")
         return
 
     deployment_payload = {
@@ -233,9 +248,9 @@ def main():
         "lastUpdated": datetime.strptime(promo_df['LastModifiedDate'], "%Y-%m-%dT%H:%M:%S.%f%z").isoformat(),
         "state": get_state(promo_df['copado__Status__c']),
         "pipeline": {
-            "id": promo_df['copado__Project__r.copado__Deployment_Flow__c'],
-            "displayName": promo_df['copado__Project__r.copado__Deployment_Flow__r.Name'],
-            "url": COPA_ENDPOINT + "/" + promo_df['copado__Project__r.copado__Deployment_Flow__c']
+            "id": pipeline_id,
+            "displayName": pipeline_name,
+            "url": COPA_ENDPOINT + "/" + pipeline_id
         },
         "environment": {
             "id": promo_df['copado__Destination_Environment__c'],
