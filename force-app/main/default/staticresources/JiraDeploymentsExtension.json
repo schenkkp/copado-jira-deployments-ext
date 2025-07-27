@@ -6,14 +6,14 @@
         {
           "attributes": {
             "type": "copado__JobTemplate__c",
-            "url": "/services/data/v64.0/sobjects/copado__JobTemplate__c/a0w4w00000LURBkAAP"
+            "url": "/services/data/v64.0/sobjects/copado__JobTemplate__c/a0yVy0000006PTZIA2"
           },
           "copado__ApiName__c": "Jira_Deployment_Notification_1",
           "copado__Type__c": "Custom",
           "copado__Version__c": 1,
-          "Id": "a0w4w00000LURBkAAP",
-          "LastReferencedDate": "2025-07-12T19:14:49.000+0000",
-          "LastViewedDate": "2025-07-12T19:14:49.000+0000",
+          "Id": "a0yVy0000006PTZIA2",
+          "LastReferencedDate": "2025-07-27T13:04:18.000+0000",
+          "LastViewedDate": "2025-07-27T13:04:18.000+0000",
           "Name": "Jira Deployment Notification"
         }
       ],
@@ -24,16 +24,18 @@
         {
           "attributes": {
             "type": "copado__JobStep__c",
-            "url": "/services/data/v64.0/sobjects/copado__JobStep__c/a0vKk000000fzSfIAI"
+            "url": "/services/data/v64.0/sobjects/copado__JobStep__c/a0xVy000005cElRIAU"
           },
           "copado__ApiName__c": "Jira_Deployment_Notification_1_Notify_Jira_of_Deployment_Status_0",
-          "copado__ConfigJson__c": "{\"functionName\":\"jira_submit_deployment_data\",\"parameters\":[{\"name\":\"JIRA_CLOUD_ID\",\"value\":\"{$Property.JIRA_CLOUD_ID}\",\"required\":true},{\"name\":\"JIRA_CLIENT_ID\",\"value\":\"{$Property.JIRA_CLIENT_ID}\",\"required\":true},{\"name\":\"JIRA_CLIENT_SECRET\",\"value\":\"{$Property.JIRA_CLIENT_SECRET}\",\"required\":true},{\"name\":\"PROMOTION_ID\",\"value\":\"{$Job.ExecutionParent.Id}\",\"required\":true},{\"required\":false,\"name\":\"DEST_ENV_TYPE\",\"defaultValue\":\"{$Property.JIRA_ENVIRONMENT_TYPE}\"},{\"name\":\"DEBUG_MODE\",\"value\":\"\",\"required\":false}]}",
+          "copado__ConfigJson__c": "{\"functionName\":\"jira_submit_deployment_data\",\"parameters\":[{\"name\":\"JIRA_CLOUD_ID\",\"value\":\"{$Property.JIRA_CLOUD_ID}\",\"required\":true},{\"name\":\"JIRA_CLIENT_ID\",\"value\":\"{$Property.JIRA_CLIENT_ID}\",\"required\":true},{\"name\":\"JIRA_CLIENT_SECRET\",\"value\":\"{$Property.JIRA_CLIENT_SECRET}\",\"required\":true},{\"name\":\"PROMOTION_ID\",\"value\":\"{$Job.ExecutionParent.Id}\",\"required\":true},{\"name\":\"DEST_ENV_TYPE\",\"value\":\"{$Property.JIRA_ENVIRONMENT_TYPE}\",\"required\":false},{\"name\":\"DEBUG_MODE\",\"value\":\"\",\"required\":false}]}",
           "copado__CustomType__c": "Function",
+          "copado__ExecutionSequence__c": "after",
           "copado__IsSkipped__c": false,
-          "copado__JobTemplate__c": "a0w4w00000LURBkAAP",
+          "copado__JobTemplate__c": "a0yVy0000006PTZIA2",
           "copado__Order__c": 0,
           "copado__Type__c": "Function",
-          "Id": "a0vKk000000fzSfIAI",
+          "copado__DevOps_Reviewed__c": false,
+          "Id": "a0xVy000005cElRIAU",
           "Name": "Notify Jira of Deployment Status"
         }
       ],
@@ -44,7 +46,7 @@
         {
           "attributes": {
             "type": "copado__Function__c",
-            "url": "/services/data/v64.0/sobjects/copado__Function__c/a0n4w00000XQ9jbAAD"
+            "url": "/services/data/v64.0/sobjects/copado__Function__c/a0pVy000003V4f9IAC"
           },
           "copado__API_Name__c": "jira_submit_deployment_data",
           "copado__Image_Name__c": "vpszr8i9hax7xyojo5glc38nvtpugy-accenture-sfdc:v1.0",
@@ -55,9 +57,9 @@
           "copado__Type__c": "Custom",
           "copado__Version__c": "1",
           "copado__Worker_Size__c": "S",
-          "Id": "a0n4w00000XQ9jbAAD",
-          "LastReferencedDate": "2025-07-12T19:14:26.000+0000",
-          "LastViewedDate": "2025-07-12T19:14:26.000+0000",
+          "Id": "a0pVy000003V4f9IAC",
+          "LastReferencedDate": "2025-07-25T13:51:26.000+0000",
+          "LastViewedDate": "2025-07-25T13:51:26.000+0000",
           "Name": "Jira Submit Deployment Data"
         }
       ],
